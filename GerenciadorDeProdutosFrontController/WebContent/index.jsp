@@ -21,7 +21,7 @@
 	<h1>Gerenciador de Produtos</h1>
 	
 	${requestScope.mensagem}
-	
+
 	<table>
 		<tr>
 			<th>Código Produto</th>
@@ -34,7 +34,8 @@
 		</tr>
 
 			
-		<%  List<Produto> lista;
+		<%
+			List<Produto> lista;
 			ProdutoService pds = new ProdutoService();		
 			lista = pds.listarProdutos();
 			
@@ -48,12 +49,13 @@
 			<td>R$ <%= p.getValor() %></td>
 			<td><%= p.getEstoque() %></td>			
 			<td><a href="alterar.jsp?codigo=<%=p.getCodigo()%>">Alterar</a></td>
-			<td><a href="ExcluirProduto?codigo=<%=p.getCodigo()%>">Deletar</a></td>
+			<td><a href="controller.do?command=ExcluirProduto&codigo=<%=p.getCodigo()%>">Deletar</a></td>		
+			
 		</tr>					
 				
 		<%}%>			
 				
 		</table>
-	
+
 </body>
 </html>
